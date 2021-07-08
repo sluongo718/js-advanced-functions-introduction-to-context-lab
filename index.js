@@ -53,5 +53,5 @@ function wagesEarnedOnDate(obj, date) {
 }
 
 function allWagesFor(obj) {
-    console.log(wagesEarnedOnDate(obj))
+    console.log(obj)
 }
