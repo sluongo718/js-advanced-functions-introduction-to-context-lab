@@ -38,10 +38,17 @@ function createTimeOutEvent(obj, stamp) {
             return obj
 }
 
-function hoursWorkedOnDate(obj, time) {
-        let timeIn = obj.timeInEvents.hour
-        let timeOut = obj.timeOutEvents.hour
-        return  time = timeIn - timeOut
-      
+function hoursWorkedOnDate(obj, date) {
+        let timeIn = obj.timeInEvents
+        let timeOut = obj.timeOutEvents
+        const findDateIn = timeIn.find(element => element.date === date)
+        const findDateOut = timeOut.find(element => element.date === date)
 
+        return  (findDateOut.hour - findDateIn.hour) / 100
+}
+
+function wagesEarnedOnDate(obj, date) {
+    let pph = obj.payPerHour
+    return hoursWorkedOnDate(pph, date) * pph
+    
 }
