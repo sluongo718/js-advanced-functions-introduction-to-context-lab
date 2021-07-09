@@ -48,10 +48,25 @@ function hoursWorkedOnDate(obj, date) {
 }
 
 function wagesEarnedOnDate(obj, date) {
+  
     let pph = obj.payPerHour
     return hoursWorkedOnDate(obj, date) * pph
 }
 
 function allWagesFor(obj) {
-    console.log(obj)
+    let wages
+    let dates = obj.timeInEvents.map(e =>  e.date )
+    wages = dates.reduce((memo, date) => {
+        return memo + wagesEarnedOnDate(obj, date)
+    },0) 
+    return wages
 }
+
+
+
+
+// how many dates iterate
+// pull a date out of a hash
+//  iterate
+
+
